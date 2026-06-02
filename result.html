@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Resume Analysis Report</h1>
+
+    <hr>
+
+    <h2>Resume Category</h2>
+    <p>{{ category }}</p>
+
+    <hr>
+
+    <h2>Industry Readiness Score</h2>
+
+   <div class="progress">
+    <div class="progress-bar"
+         style="--progress-width: {{ score }}%;">
+        {{ score }}%
+    </div>
+   </div>
+
+    {% if score >= 80 %}
+        <h3>🚀 Level: Industry Ready</h3>
+    {% elif score >= 60 %}
+        <h3>👍 Level: Intermediate Candidate</h3>
+    {% else %}
+        <h3>📚 Level: Needs Improvement</h3>
+    {% endif %}
+
+    <hr>
+
+    <h2>Detected Skills</h2>
+
+    <div class="skills">
+        {% for skill in skills %}
+            <span class="skill-badge">{{ skill }}</span>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <h2>ATS Match Score</h2>
+
+    <div class="progress">
+    <div class="progress-bar"
+         style="--progress-width: {{ match_score }}%;">
+        {{ match_score }}%
+    </div>
+</div>
+
+    <div class="matched">
+
+        <h3>✅ Matched Skills</h3>
+
+        {% if matched %}
+            <ul>
+                {% for item in matched %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No matched skills found.</p>
+        {% endif %}
+
+    </div>
+
+    <div class="missing">
+
+        <h3>❌ Missing Skills</h3>
+
+        {% if missing %}
+            <ul>
+                {% for item in missing %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No missing skills.</p>
+        {% endif %}
+
+    </div>
+
+    <hr>
+
+    <h2>Areas To Improve</h2>
+
+    {% if suggestions %}
+
+        {% for s in suggestions %}
+        <div class="suggestion-card">
+
+            <h3>{{ s.title }}</h3>
+
+            <a href="{{ s.link }}" target="_blank">
+                📖 Open Learning Resource
+            </a>
+
+        </div>
+        {% endfor %}
+
+    {% else %}
+
+        <p>🎉 Your resume looks strong. No major improvements suggested.</p>
+
+    {% endif %}
+
+    <hr>
+
+    <a href="/">🔄 Analyze Another Resume</a>
+
+</div>
+
+</body>
+</html>
