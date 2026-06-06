@@ -1,97 +1,219 @@
 # Resume Analyzer
 
-An AI-powered Resume Analyzer built using Python, Flask, Machine Learning, and NLP.
+A Flask-based web application that analyzes resumes using Machine Learning and Natural Language Processing (NLP).
+
+The application predicts the resume category, extracts skills, calculates ATS Match Score, evaluates industry readiness, and provides personalized improvement suggestions.
+
+---
 
 ## Overview
 
-Resume Analyzer helps users evaluate their resumes by extracting skills, predicting career categories, calculating industry readiness scores, and providing personalized improvement suggestions.
-
-The application supports multiple file formats and offers ATS-style resume analysis to help candidates improve their job applications.
+Resume Analyzer helps job seekers evaluate their resumes against industry standards. It identifies skills, predicts career domains, measures ATS compatibility, and suggests improvements to increase employability.
 
 ---
 
 ## Features
 
-### Resume Upload
-Supports:
+- Resume Category Prediction
+- Skill Extraction
+- ATS Match Score Calculation
+- Industry Readiness Score
+- Missing Skill Detection
+- Resume Improvement Suggestions
+- PDF Resume Upload
+- Responsive User Interface
 
-- PDF (.pdf)
-- Word Documents (.docx)
-- Text Files (.txt)
-- Images (.jpg, .jpeg, .png)
+---
 
-### Skill Extraction
-Automatically detects technical skills from uploaded resumes.
+## Problem Statement
 
-Example:
+Many candidates submit resumes without understanding whether they meet industry expectations or Applicant Tracking System (ATS) requirements.
 
-- Python
-- SQL
-- AWS
-- Power BI
-- Pandas
-- NumPy
-- Machine Learning
+This project helps users:
 
-### Resume Category Prediction
-
-Predicts the most suitable career category such as:
-
-- Data Science
-- Python Developer
-- Web Developer
-- Java Developer
-- Testing
-- HR
-
-### Industry Readiness Score
-
-Evaluates resume quality based on:
-
-- Skills
-- Projects
-- Certifications
-- Internship Experience
-- GitHub Profile
-- LinkedIn Profile
-- Soft Skills
-
-### ATS Compatibility Analysis
-
-Shows:
-
-- ATS Match Score
-- Matched Skills
-- Missing Skills
-
-### Personalized Suggestions
-
-Provides improvement recommendations along with learning resources.
+- Analyze resume quality
+- Identify missing skills
+- Improve ATS compatibility
+- Measure industry readiness
+- Access learning resources for improvement
 
 ---
 
 ## Technologies Used
 
-### Backend
+| Technology | Purpose |
+|------------|----------|
+| Python | Backend Development |
+| Flask | Web Framework |
+| HTML | Frontend Structure |
+| CSS | User Interface Styling |
+| Scikit-learn | Machine Learning |
+| Pandas | Data Processing |
+| NLTK | Natural Language Processing |
+| PyPDF2 | PDF Text Extraction |
+| Joblib | Model Serialization |
+
+---
+
+## Project Structure
+
+```text
+ResumeAnalyzer/
+│
+├── app.py
+├── model.pkl
+├── vectorizer.pkl
+│
+├── templates/
+│   ├── index.html
+│   └── result.html
+│
+├── static/
+│   └── css/
+│       └── style.css
+│
+├── uploads/
+│
+├── utils/
+│   ├── parser.py
+│   ├── predictor.py
+│   ├── skill_extract.py
+│   ├── analyzer.py
+│   └── job_match.py
+│
+└── requirements.txt
+```
+
+---
+
+## Project Workflow
+
+### 1. Resume Upload
+The user uploads a PDF resume.
+
+### 2. Text Extraction
+Text is extracted from the uploaded resume.
+
+### 3. Resume Classification
+The trained machine learning model predicts the resume category.
+
+Example categories:
+
+- Data Science
+- Web Development
+- HR
+- Testing
+- Java Developer
+
+### 4. Skill Extraction
+Relevant technical and professional skills are identified.
+
+### 5. ATS Analysis
+Resume skills are compared against job requirements.
+
+### 6. Score Generation
+Industry Readiness Score and ATS Match Score are calculated.
+
+### 7. Suggestions
+Personalized recommendations are provided for improvement.
+
+---
+
+## Sample Output
+
+### Resume Category
+Data Science
+
+### Industry Readiness Score
+82%
+
+### ATS Match Score
+75%
+
+### Detected Skills
 
 - Python
-- Flask
+- SQL
+- Pandas
+- NumPy
+- Power BI
+- AWS
 
-### Machine Learning
+### Suggestions
 
-- Scikit-Learn
-- TF-IDF Vectorizer
-- Naive Bayes Classification
+- Add Internship Experience
+- Improve Project Descriptions
+- Earn Industry Certifications
+- Create a GitHub Portfolio
 
-### NLP
+---
 
-- NLTK
+## Installation
 
-### Resume Processing
+### Clone Repository
 
-- PyPDF2
-- python-docx
-- Pillow
+```bash
+git clone https://github.com/YOUR_USERNAME/resumeanalyser.git
+```
+
+### Navigate to Project Folder
+
+```bash
+cd resumeanalyser
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run Application
+
+```bash
+python app.py
+```
+
+---
+
+## Usage
+
+1. Open the application in a browser.
+2. Upload a resume in PDF format.
+3. View the analysis report.
+4. Review ATS score, detected skills, and improvement suggestions.
+
+---
+
+## Future Enhancements
+
+- LinkedIn Profile Analysis
+- Job Recommendation System
+- Resume Ranking System
+- AI-Based Resume Suggestions
+- Multi-Language Resume Support
+
+---
+
+## Screenshots
+
+### Home Page
+
+Add screenshot here.
+
+### Analysis Report
+
+Add screenshot here.
+
+---
+
+## Author
+
+**Lekha Pandharipande**
+
+B.Tech Data Science Engineering
+
+St. Vincent Pallotti College of Engineering and Technology, Nagpur- Pillow
 - Pytesseract OCR
 
 ### Frontend
